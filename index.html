@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Starter | Je laptop klaar om met AI te bouwen</title>
+  <meta name="description" content="Eén commando installeert Git, Node.js, GitHub CLI en Firebase CLI. Zonder adminrechten, op Windows en Mac.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+  <div class="layout">
+    <div class="sidebar-overlay" onclick="toggleMenu()"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <span class="brand-subtitle">Installatiepakket</span>
+          <span class="brand-title">AI Starter</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Installeren</div>
+          <a href="#windows" class="nav-link active"><span class="nav-icon">&#9679;</span>Windows</a>
+          <a href="#mac" class="nav-link"><span class="nav-icon">&#9679;</span>Mac</a>
+        </div>
+        <div class="nav-section">
+          <div class="nav-section-title">Daarna</div>
+          <a href="#controleren" class="nav-link"><span class="nav-icon">&#9679;</span>Controleren</a>
+          <a href="#wat" class="nav-link"><span class="nav-icon">&#9679;</span>Wat het doet</a>
+          <a href="#problemen" class="nav-link"><span class="nav-icon">&#9679;</span>Lukt het niet?</a>
+          <a href="#verwijderen" class="nav-link"><span class="nav-icon">&#9679;</span>Verwijderen</a>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">Git, Node.js, GitHub CLI en Firebase CLI<br>Geen adminrechten nodig</div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">&#9776;</button>
+        <h1 class="page-title">AI Starter</h1>
+      </header>
+
+      <div class="main-content">
+        <p class="lead">
+          Eén commando en je laptop is klaar om met AI te bouwen. Je krijgt Git, Node.js, GitHub CLI en Firebase CLI,
+          precies wat je nodig hebt voor Claude Code, websites op GitHub Pages en apps op Firebase.
+          Je hebt er geen adminrechten voor nodig, dus het werkt ook op een laptop van je werk of opleiding.
+        </p>
+
+        <div class="callout callout-primary">
+          <p><strong>Duurt 5 tot 10 minuten.</strong> Wat al op je laptop staat, slaat het over. Opnieuw draaien kan altijd.</p>
+        </div>
+
+        <section id="windows">
+          <h2>Windows</h2>
+          <div class="card">
+            <div class="os-tag">Windows 10 en 11</div>
+            <ol class="steps">
+              <li>Open <strong>PowerShell</strong>: klik op Start, typ <code class="inline">PowerShell</code> en druk op Enter. Gewoon openen, niet als administrator.</li>
+              <li>Kopieer dit commando, plak het in PowerShell (rechtermuisknop of Ctrl+V) en druk op Enter:
+                <div class="cmd"><code id="cmd-win">irm https://fabianb88.github.io/ai-starter/install.ps1 | iex</code><button type="button" data-copy="cmd-win">Kopieer</button></div>
+              </li>
+              <li>Vul je naam en e-mailadres in voor Git. Gebruik het e-mailadres van je GitHub-account.</li>
+              <li>Kies of je meteen wilt inloggen bij GitHub en Firebase. Dat kan ook later.</li>
+              <li>Sluit het venster en open een <strong>nieuw</strong> PowerShell-venster. Draait VS Code al, herstart het dan.</li>
+            </ol>
+            <p class="muted">Liever dubbelklikken? Download <a href="AI-Starter-Windows.cmd" download>AI-Starter-Windows.cmd</a> en open het.
+              Krijg je "Windows heeft uw pc beschermd", klik dan op <em>Meer info</em> en <em>Toch uitvoeren</em>.
+              Zie je die knop niet, gebruik dan het commando hierboven.</p>
+          </div>
+        </section>
+
+        <section id="mac">
+          <h2>Mac</h2>
+          <div class="card">
+            <div class="os-tag">macOS (werkt ook op Linux)</div>
+            <ol class="steps">
+              <li>Open <strong>Terminal</strong>: druk op Cmd+spatie, typ <code class="inline">Terminal</code> en druk op Enter.</li>
+              <li>Kopieer dit commando, plak het in Terminal en druk op Enter:
+                <div class="cmd"><code id="cmd-mac">curl -fsSL https://fabianb88.github.io/ai-starter/install.sh | bash</code><button type="button" data-copy="cmd-mac">Kopieer</button></div>
+              </li>
+              <li>Vraagt macOS om de <em>Command Line Tools</em> te installeren? Klik op Installeer. Daar zit Git in. Het script wacht tot dat klaar is.</li>
+              <li>Vul je naam en e-mailadres in voor Git en kies of je meteen wilt inloggen.</li>
+              <li>Open daarna een <strong>nieuw</strong> Terminal-venster.</li>
+            </ol>
+          </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="controleren">
+          <h2>Controleren</h2>
+          <p>Typ in een nieuw venster deze vier commando's. Krijg je bij alle vier een versienummer, dan werkt alles.</p>
+          <div class="cmd"><code id="cmd-check">git --version; node -v; gh --version; firebase --version</code><button type="button" data-copy="cmd-check">Kopieer</button></div>
+        </section>
+
+        <section id="wat">
+          <h2>Wat het doet</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Onderdeel</th><th>Waarvoor</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Git</strong></td><td>Versiebeheer van je code. Op Windows inclusief Git Bash, die Claude Code nodig heeft.</td></tr>
+                <tr><td><strong>Node.js</strong> (LTS)</td><td>Draait JavaScript-tools zoals Claude Code, Firebase CLI en npm-pakketten.</td></tr>
+                <tr><td><strong>GitHub CLI</strong></td><td>Inloggen bij GitHub, repo's aanmaken en pushen vanaf de terminal.</td></tr>
+                <tr><td><strong>Firebase CLI</strong></td><td>Apps en websites publiceren op Firebase.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-grid">
+            <div class="card">
+              <div class="card-title">Alleen in je eigen map</div>
+              <p class="card-text">Windows: <code class="inline">%LOCALAPPDATA%\AI-Starter</code>. Mac: <code class="inline">~/.ai-starter</code>. Het past alleen jouw eigen PATH aan, niet dat van de hele computer.</p>
+            </div>
+            <div class="card">
+              <div class="card-title">Officiële bronnen</div>
+              <p class="card-text">Downloads komen van github.com, nodejs.org en npmjs.org en worden gecontroleerd met hun SHA-256-controlesom.</p>
+            </div>
+            <div class="card">
+              <div class="card-title">Altijd de nieuwste versie</div>
+              <p class="card-text">Het script zoekt bij elke installatie de actuele versie op. Er zit geen verouderde kopie in.</p>
+            </div>
+            <div class="card">
+              <div class="card-title">Broncode</div>
+              <p class="card-text">Bekijk wat het precies doet: <a href="install.ps1">install.ps1</a> (Windows) en <a href="install.sh">install.sh</a> (Mac).</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="problemen">
+          <h2>Lukt het niet?</h2>
+          <div class="collapsible">
+            <div class="collapsible-header"><h3 class="collapsible-title">"git" of "node" wordt niet herkend</h3><span class="collapsible-icon">+</span></div>
+            <div class="collapsible-content"><p>Je gebruikt nog het oude venster. Sluit alle terminals en VS Code en open ze opnieuw. Het nieuwe PATH geldt alleen voor nieuwe vensters.</p></div>
+          </div>
+          <div class="collapsible">
+            <div class="collapsible-header"><h3 class="collapsible-title">Een onderdeel geeft een foutmelding</h3><span class="collapsible-icon">+</span></div>
+            <div class="collapsible-content"><p>Draai het commando gewoon nog een keer. Wat al gelukt is, wordt overgeslagen. Vaak was het een haperende download.</p></div>
+          </div>
+          <div class="collapsible">
+            <div class="collapsible-header"><h3 class="collapsible-title">"Dit programma is geblokkeerd door je organisatie"</h3><span class="collapsible-icon">+</span></div>
+            <div class="collapsible-content"><p>Sommige beheerde laptops staan geen programma's toe buiten de Program Files-map. Daar kan dit script niet omheen. Vraag je IT-afdeling om Git, Node.js, GitHub CLI en Firebase CLI te installeren, of gebruik een eigen laptop.</p></div>
+          </div>
+          <div class="collapsible">
+            <div class="collapsible-header"><h3 class="collapsible-title">Inloggen bij GitHub of Firebase later doen</h3><span class="collapsible-icon">+</span></div>
+            <div class="collapsible-content">
+              <p>Typ in een terminal:</p>
+              <div class="cmd"><code id="cmd-login">gh auth login --web</code><button type="button" data-copy="cmd-login">Kopieer</button></div>
+              <div class="cmd"><code id="cmd-fb">firebase login</code><button type="button" data-copy="cmd-fb">Kopieer</button></div>
+            </div>
+          </div>
+          <p class="muted">Lukt het daarna nog niet? Maak een schermafbeelding van het venster en stuur die naar wie je deze link gaf.</p>
+        </section>
+
+        <section id="verwijderen">
+          <h2>Verwijderen</h2>
+          <p>Haalt alles weg wat de AI Starter heeft geïnstalleerd. Je Git-instellingen en logins blijven staan.</p>
+          <div class="os-tag">Windows (PowerShell)</div>
+          <div class="cmd"><code id="cmd-unwin">irm https://fabianb88.github.io/ai-starter/uninstall.ps1 | iex</code><button type="button" data-copy="cmd-unwin">Kopieer</button></div>
+          <p class="muted">Of download <a href="AI-Starter-Verwijderen.cmd" download>AI-Starter-Verwijderen.cmd</a> en dubbelklik het.</p>
+          <div class="os-tag">Mac (Terminal)</div>
+          <div class="cmd"><code id="cmd-unmac">curl -fsSL https://fabianb88.github.io/ai-starter/install.sh | bash -s -- --verwijder</code><button type="button" data-copy="cmd-unmac">Kopieer</button></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function toggleMenu(e) {
+      if (e) e.preventDefault();
+      document.getElementById('sidebar').classList.toggle('open');
+      document.querySelector('.sidebar-overlay').classList.toggle('open');
+    }
+
+    // Kopieerknoppen
+    document.querySelectorAll('[data-copy]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var text = document.getElementById(btn.dataset.copy).textContent;
+        var done = function () {
+          btn.textContent = 'Gekopieerd';
+          btn.classList.add('done');
+          setTimeout(function () { btn.textContent = 'Kopieer'; btn.classList.remove('done'); }, 1800);
+        };
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(done, function () { fallback(text); done(); });
+        } else { fallback(text); done(); }
+      });
+    });
+    function fallback(text) {
+      var t = document.createElement('textarea');
+      t.value = text; t.style.position = 'fixed'; t.style.opacity = '0';
+      document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(t);
+    }
+
+    // Uitklapblokken
+    document.querySelectorAll('.collapsible-header').forEach(function (h) {
+      h.addEventListener('click', function () { h.parentElement.classList.toggle('open'); });
+    });
+
+    // Actieve link in de zijbalk volgen en menu sluiten op mobiel
+    var links = Array.prototype.slice.call(document.querySelectorAll('.nav-link'));
+    links.forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (window.innerWidth <= 1024) {
+          document.getElementById('sidebar').classList.remove('open');
+          document.querySelector('.sidebar-overlay').classList.remove('open');
+        }
+      });
+    });
+    var sections = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+    function markActive() {
+      var y = window.scrollY + 120, idx = 0;
+      sections.forEach(function (s, i) { if (s && s.offsetTop <= y) idx = i; });
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) idx = sections.length - 1;
+      links.forEach(function (a, i) { a.classList.toggle('active', i === idx); });
+    }
+    window.addEventListener('scroll', markActive, { passive: true });
+    markActive();
+  </script>
+</body>
+</html>
